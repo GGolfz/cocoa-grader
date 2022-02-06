@@ -29,3 +29,32 @@ A Discord Bot Grader, more specifically, '*Waifu*'
 ![](./images/aboutme_0.2.7.png)
 
 ![](./images/status_0.2.7.png)
+
+## How to add problem
+
+The problems folder is at `./problems`
+
+It requires a `manifest.json` file, which is a json file with the following format:
+
+```json
+{
+    "problemLists": [problemId: string]
+}
+```
+
+For each problem it need a folder with the same name as the problemId. In that folder requires a `manifest.json` file, which is a json file with the following format:
+
+```json
+{
+    "title": string,
+    "description": string,
+    "timelimit": number,
+    "memorylimit": number,
+    "subtasks": { [name: string]: number },
+    "maxScore": number, // optional
+    "statement": string, // optional,
+    "compare": CompareType // optional,
+}
+```
+
+For the subtask will store in `testcase` folder with is in the same level with `manifest.json` file. In that folder will contain `<subtask_name>.in` and `<subtask_name>.out` files. 
